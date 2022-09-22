@@ -8,7 +8,7 @@ import java.util.List;
 public class Device {
 
 
-    public Device(boolean fan_status, int humidity, int minTemp, int sensor1Min, int sensor2Min, int sensor3Min, int sensor4Min, int temperature, int minSoilMoist4, int minSoilMoist3, int minSoilMoist2, int minSoilMoist1, int currentSoilMoist4, int currentSoilMoist3, int currentSoilMoist2, int currentSoilMoist1, ArrayList usersInvolved) {
+    public Device(boolean fan_status, int humidity, int minTemp, int sensor1Min, int sensor2Min, int sensor3Min, int sensor4Min, int temperature, int minSoilMoist4, int minSoilMoist3, int minSoilMoist2, int minSoilMoist1, int currentSoilMoist4, int currentSoilMoist3, int currentSoilMoist2, int currentSoilMoist1) {
         this.fan_status = fan_status;
         this.humidity = humidity;
         this.minTemp = minTemp;
@@ -25,7 +25,7 @@ public class Device {
         this.currentSoilMoist3 = currentSoilMoist3;
         this.currentSoilMoist2 = currentSoilMoist2;
         this.currentSoilMoist1 = currentSoilMoist1;
-        this.usersInvolved = usersInvolved;
+
     }
 
     public boolean fan_status;
@@ -48,7 +48,6 @@ public class Device {
     public int currentSoilMoist2;
     public int currentSoilMoist1;
 
-    public ArrayList usersInvolved;
 
 
 

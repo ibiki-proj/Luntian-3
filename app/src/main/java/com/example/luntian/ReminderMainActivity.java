@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -133,7 +134,7 @@ public class ReminderMainActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Reminder reminder = dataSnapshot.getValue(Reminder.class);
                         list.add(reminder);
-
+                    Toast.makeText(ReminderMainActivity.this, ""+reminder.getcurrentDate(), Toast.LENGTH_SHORT).show();
                     }
                     ListAdapter.notifyDataSetChanged();
 

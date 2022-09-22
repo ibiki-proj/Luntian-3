@@ -24,11 +24,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.lang.reflect.Array;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -36,6 +38,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     BottomNavigationView bottomNavigationView;
     private Button logoutBtn;
     String devicePath = "";
+    String token = "";
     private Spinner spinner;
     private static final String[] paths = {"Device 1", "Device 2"};
     @Override
@@ -45,34 +48,85 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         FirebaseDatabase rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
         DatabaseReference sampleRef = rtdb.getReference("Users").child(FirebaseAuth.getInstance().getUid());
-        DatabaseReference deviceRef = rtdb.getReference("sampletest1").child(paths[position]);
+        DatabaseReference deviceRef = rtdb.getReference("sampletest1").child(paths[position]).child("usersInvolved");
 
         Map<String, Object> data = new HashMap<>();
 
         data.put("device",paths[position]);
         sampleRef.updateChildren(data);
 
+//        List users = new ArrayList<String>();
+
+//        users.add(users);
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(Settings.this, "Fetching FCM registration token failed"+task.getException(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                         token = task.getResult();
+
+                        Toast.makeText(Settings.this, "Token "+token, Toast.LENGTH_SHORT).show();
+                    }
+                });
         deviceRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Toast.makeText(Settings.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Map<String, Object> data = new HashMap<>();
-                    Device device = task.getResult().getValue(Device.class);
+                if(task.getResult().exists()){
+                    ArrayList users = new ArrayList();
+
+                    for (DataSnapshot dss:task.getResult().getChildren()){
+                        Toast.makeText(Settings.this, ""+dss.getValue(), Toast.LENGTH_SHORT).show();
+
+                        users.add(dss.getValue());
+                    }
+//                    ArrayList users = task.getResult().getValue(ArrayList.class);
+
+                    boolean alreadyExist = users.contains(token);
+
+                    Toast.makeText(Settings.this, ""+alreadyExist, Toast.LENGTH_SHORT).show();
+                    if (alreadyExist) {
+                        Toast.makeText(Settings.this, "You are already involve to this device", Toast.LENGTH_SHORT).show();
+                    }else{
+                        users.add(token);
+                        deviceRef.setValue(users);
+                    }
 
 
-                   ArrayList users =  device.usersInvolved;
-
-                    Toast.makeText(Settings.this, ""+users, Toast.LENGTH_SHORT).show();
-//                    data.put("usersInvolved",device.usersInvolved );
-
-
-//                    deviceRef.updateChildren(data);
+                }else{ArrayList users = new ArrayList();
+                    users.add(token);
+                        deviceRef.setValue(users);
                 }
             }
         });
+//        Toast.makeText(this, ""+deviceRef.get().getResult().getChildren(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+deviceRef.get().getResult().getValue(), Toast.LENGTH_SHORT).show();
+        List<String> users = new ArrayList<>();
+
+//        deviceRef.child("usersInvolved").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists()){
+//                    for (DataSnapshot dss:snapshot.getChildren()){
+//
+//
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//
+//
+//        });
+
+
 
 
 

@@ -213,6 +213,7 @@ public class humidity_monitoring extends AppCompatActivity {
             }
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
