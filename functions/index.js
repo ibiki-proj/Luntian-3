@@ -49,7 +49,7 @@ exports.newNodeDetected = functions.database
         var payload = {
           notification: {
             tag: "fan",
-            title: `Fan is On (${newData.temperature}%)`,
+            title: `Fan is On (${newData.temperature} °C)`,
             body: `Due to high temperature the ${deviceId} fan is on.`,
           },
         };
@@ -60,7 +60,7 @@ exports.newNodeDetected = functions.database
           .child("logs")
           .push({
             tag: "fan",
-            title: `Fan is On (${newData.temperature}%)`,
+            title: `Fan is On (${newData.temperature} °C)`,
             body: `Due to high temperature the ${deviceId} fan is on.`,
             createdAt: Date.now(),
           });
@@ -89,7 +89,7 @@ exports.newNodeDetected = functions.database
       }
     } else if (oldData.currentSoilMoist1 != newData.currentSoilMoist1) {
       if (newData.currentSoilMoist1 > newData.minSoilMoist1) {
-        // @ts-ignore
+        // @ts-ignores
         var payload = {
           notification: {
             tag: "moisture1",
