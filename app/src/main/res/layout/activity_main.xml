@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbgwhite"
+    tools:context=".MainActivity">
+    <!--
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">-->
+
+
+    <!--<com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"/>-->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        android:background="@android:color/transparent"
+        app:itemBackground="@color/darker_green"
+        app:menu="@menu/bottomnavbar"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"/>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/topbar"
+        android:textAlignment="center"
+        android:padding="10dp">
+
+
+
+       <!-- <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="18dp"
+           ></androidx.appcompat.widget.Toolbar> -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_shade"
+            android:includeFontPadding="false"
+            android:layout_marginStart="50dp"
+            android:padding="15dp"
+            android:text="LUNTIAN"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="45sp"></TextView>
+
+
+    </LinearLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="60dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/userIDTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="userID"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:visibility="gone"></TextView>
+
+            <ImageView
+                android:id="@+id/humidityBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_humidity3"></ImageView>
+
+            <ImageView
+                android:id="@+id/soilmoistureBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_soilmoisture3"></ImageView>
+
+            <ImageView
+                android:id="@+id/plancyclopediaBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_plantcyclopedia2"></ImageView>
+
+            <ImageView
+                android:id="@+id/plantgrowthBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_plantgrowth2"></ImageView>
+
+            <ImageView
+                android:id="@+id/reminderBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_reminder3"></ImageView>
+
+            <ImageView
+                android:id="@+id/plannerBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/btn_planner3"></ImageView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

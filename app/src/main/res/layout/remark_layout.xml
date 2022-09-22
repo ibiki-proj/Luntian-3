@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/darker_green"
+    android:layout_row="0"
+    android:layout_column="0"
+    android:layout_gravity="fill"
+    android:layout_rowWeight="1"
+    android:layout_columnWeight="1"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="@color/darker_green"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_roundedbg"
+        android:layout_margin="15dp">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="300dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/trackRemarkImg"></ImageView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/trackingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/raleway_italic"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:text="Date Planted"
+            android:textColor="@color/white"
+            android:textSize="18sp"></TextView>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/trackingRemark"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum quis sapien ut auctor."
+        android:padding="15dp"
+        android:fontFamily="@font/raleway_regular"
+        android:textColor="@color/white"
+        android:textSize="18sp"></TextView>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/delRemarkLayout"
+        android:visibility="gone"
+        android:background="@drawable/transparent_roundedbg"
+        android:orientation="vertical"
+
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/cancelDel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="X"
+                android:textColor="@color/white"
+                android:background="@android:color/transparent"
+                android:includeFontPadding="false"
+                android:textSize="30sp"></Button>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:id="@+id/delRemark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/mybutton"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="DELETE"
+                android:textColor="@color/darker_green"
+                android:textSize="20sp"
+                app:backgroundTint="@color/white"></Button>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

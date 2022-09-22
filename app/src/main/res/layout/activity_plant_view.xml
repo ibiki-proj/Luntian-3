@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darker_green"
+    tools:context=".plant_view">
+
+    <RelativeLayout
+        android:id="@+id/menuBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/plantbar_menu"
+        >
+
+        <ImageView
+            android:id="@+id/plantbackBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/gleftarrow"></ImageView>
+
+        <TextView
+            android:id="@+id/nameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/fredoka_regular"
+            android:text="Plant Name"
+            android:textColor="@color/darker_green"
+            android:textSize="25sp"></TextView>
+
+        <ImageView
+            android:id="@+id/infoBtn"
+           android:layout_alignParentEnd="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/infoicon"
+            android:visibility="visible"></ImageView>
+    </RelativeLayout>
+
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg_white">
+
+                <ImageView
+                    android:id="@+id/view_img"
+                    android:layout_width="300dp"
+                    android:layout_height="190dp"
+                    android:padding="10dp"></ImageView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/view_scientific"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_italic"
+                    android:text="Plant Scientific Name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="General Information"
+                    android:textColor="@color/darker_green"
+                    android:textSize="21sp"
+                    android:textAlignment="center"></TextView>
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Origin : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:id="@+id/originTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Set plant origin here "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Common in : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:id="@+id/commonTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Plant is common in "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Care Level : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:id="@+id/carelvlTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Plant Care Level "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Characteristics"
+                    android:textAlignment="center"
+                    android:textColor="@color/darker_green"
+                    android:textSize="21sp"></TextView>
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/leaf"></ImageView>
+
+                    <TextView
+                        android:id="@+id/typeTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="plant type"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/height"></ImageView>
+
+                    <TextView
+                        android:id="@+id/heightTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="max height"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/flowering"></ImageView>
+
+                    <TextView
+                        android:id="@+id/floweringTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="flowering season"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/toxic"></ImageView>
+
+                    <TextView
+                        android:id="@+id/toxicTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="toxic for"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Plant Care Instructions"
+                    android:textAlignment="center"
+                    android:textColor="@color/darker_green"
+                    android:textSize="21sp"></TextView>
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:columnCount="2"
+                android:rowCount="3">
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/temperature"></ImageView>
+
+                    <TextView
+                        android:id="@+id/temperatureTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="degrees celsius"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/sunlight"></ImageView>
+
+                    <TextView
+                        android:id="@+id/lightingTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="low"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/humidity"></ImageView>
+
+                    <TextView
+                        android:id="@+id/humidityTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="40% to 80%"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/wateringcan"></ImageView>
+
+                    <TextView
+                        android:id="@+id/wateringTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="1x/week"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/fertilizer"></ImageView>
+
+                    <TextView
+                        android:id="@+id/fertilizerTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="1x/month"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/lightgreen_rounded"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/depth"></ImageView>
+
+                    <TextView
+                        android:id="@+id/depthTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textStyle="bold"
+                        android:text="1 to 1.5 inches"
+                        android:textColor="@color/white"></TextView>
+                </LinearLayout>
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Propagation : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+                <TextView
+                    android:id="@+id/propagationTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Donec vestibulum quis sapien ut auctor. Proin
+                     vel justo faucibus, cursus massa pulvinar, ornare lacus. Donec
+                      id pellentesque nulla. "></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Pruning : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+                <TextView
+                    android:id="@+id/pruningTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Donec vestibulum quis sapien ut auctor. Proin
+                     vel justo faucibus, cursus massa pulvinar, ornare lacus. Donec
+                      id pellentesque nulla. "></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Repotting : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+                <TextView
+                    android:id="@+id/repotTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Donec vestibulum quis sapien ut auctor. Proin
+                     vel justo faucibus, cursus massa pulvinar, ornare lacus. Donec
+                      id pellentesque nulla. "></TextView>
+
+                <Button
+                    android:id="@+id/addCurrentPlantBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/mybutton"
+                    app:backgroundTint="@color/white"
+                    android:text="Plant Now"
+                    android:textColor="@color/darker_green"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:layout_marginBottom="30dp"
+                    android:textSize="20sp"
+                    ></Button>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/termLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuBar"
+        android:orientation="vertical"
+        android:background="#80000000"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbg_rounded"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Terminologies"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_margin="10dp"></TextView>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="25dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Care Level"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:paddingLeft="30dp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Effort needed to take care of the plant."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="===================================="
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="2dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flowering Period"
+                        android:paddingLeft="30dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The time the plant will produce flowers."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="===================================="
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="2dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Temperature"
+                        android:paddingLeft="30dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The recommended temperature for the plant to grow healthy."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="===================================="
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="2dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Humidity"
+                        android:paddingLeft="30dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refers to refers to the moisture content of the atmosphere that could affect the plants ability to draw nutrients from the soil."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="===================================="
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="2dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Propagation"
+                        android:paddingLeft="30dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="How the plants could be bred."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="===================================="
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_margin="2dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pruning"
+                        android:paddingLeft="30dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refers to cutting away or trimming a plant's dead or overgrown branch and stem."
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"></TextView>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

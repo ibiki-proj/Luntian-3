@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg2"
+    android:orientation="vertical"
+    tools:context=".login">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/bungee_shade"
+            android:padding="10dp"
+            android:text="LUNTIAN"
+            android:textColor="@color/white"
+            android:textSize="52sp"></TextView>
+
+        <EditText
+            android:id="@+id/login_emailTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:fontFamily="@font/fredoka_regular"
+            android:hint="email address"
+            android:inputType="text"
+            android:textColor="@color/darker_green"
+            android:textColorHint="@color/light_green"
+            android:padding="8dp"
+            android:textSize="20sp"></EditText>
+
+        <EditText
+            android:id="@+id/login_passwordTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:fontFamily="@font/fredoka_regular"
+            android:textColor="@color/darker_green"
+            android:textColorHint="@color/light_green"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textSize="20sp"
+            ></EditText>
+
+        <TextView
+            android:id="@+id/forgetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/fredoka_regular"
+            android:text="Forget password?"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:visibility="gone"></TextView>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="1dp"
+            android:text="LOGIN"
+            android:textColor="@color/darker_green"
+            android:textSize="25sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="1dp"
+            android:text="register"
+            android:textColor="@color/darker_green"
+            android:textSize="25sp"
+            app:backgroundTint="@color/white"></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true">
+        <ProgressBar
+            android:id="@+id/loginProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleLarge"
+            android:visibility="gone"></ProgressBar>
+
+    </LinearLayout>
+</RelativeLayout>

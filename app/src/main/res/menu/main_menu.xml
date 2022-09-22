@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single"
+
+        android:textColor="#799FCB"
+        android:textSize="10sp"
+        android:textStyle="bold">
+
+        <item
+            android:id="@+id/nav_humidity"
+            android:title="Humidity Tracking"
+
+
+            />
+
+        <item
+            android:id="@+id/nav_soil"
+            android:title="Soil Moisture"
+
+            />
+
+        <item
+            android:id="@+id/nav_plant"
+            android:title="Track Plant Growth" />
+
+        <item
+            android:id="@+id/nav_plantcyclopedia"
+            android:title="Plantcyclopedia" />
+
+        <item
+            android:id="@+id/nav_reminders"
+            android:title="My Reminders" />
+
+        <item
+            android:id="@+id/nav_notification"
+            android:title="Notification Setting" />
+
+        <item
+            android:id="@+id/nav_planner"
+            android:title="Planner" />
+
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Log Out" />
+
+
+    </group>
+
+
+
+</menu>

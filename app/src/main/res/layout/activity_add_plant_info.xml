@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".add_plant_info">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plant Image"></TextView>
+
+            <ImageView
+                android:id="@+id/plant_img"
+                android:layout_width="200dp"
+                android:layout_height="190dp"
+                android:background="@drawable/imageicon"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Name"></TextView>
+
+            <EditText
+                android:id="@+id/plant_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Scientific Name"></TextView>
+
+            <EditText
+                android:id="@+id/plant_scientific"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Kind"></TextView>
+
+            <EditText
+                android:id="@+id/plant_kind"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Origin"></TextView>
+
+            <EditText
+                android:id="@+id/plant_origin"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Common In"></TextView>
+
+            <EditText
+                android:id="@+id/plant_common"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Care Level"></TextView>
+
+            <EditText
+                android:id="@+id/plant_carelvl"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Type"></TextView>
+
+            <EditText
+                android:id="@+id/plant_type"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Max Height"></TextView>
+
+            <EditText
+                android:id="@+id/plant_height"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Flowering Season"></TextView>
+
+            <EditText
+                android:id="@+id/plant_flowering"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Plant Toxic for"></TextView>
+
+            <EditText
+                android:id="@+id/plant_toxic"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Recommended Temperature"></TextView>
+
+            <EditText
+                android:id="@+id/plant_temperature"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Recommended Lighting"></TextView>
+
+            <EditText
+                android:id="@+id/plant_lighting"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Recommended Humidity"></TextView>
+
+            <EditText
+                android:id="@+id/plant_humidity"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Watering Frequency"></TextView>
+
+            <EditText
+                android:id="@+id/plant_watering"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Fertilizer"></TextView>
+
+            <EditText
+                android:id="@+id/plant_fertilizer"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Propagation"></TextView>
+
+            <EditText
+                android:id="@+id/plant_propagation"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Pruning"></TextView>
+
+            <EditText
+                android:id="@+id/plant_pruning"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Repotting"></TextView>
+
+            <EditText
+                android:id="@+id/plant_repot"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Planting Depth"></TextView>
+
+            <EditText
+                android:id="@+id/plant_depth"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
+            <Button
+                android:id="@+id/addPlantDBBtn"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/mybutton"
+                android:text="ADD PLANT"
+                android:textColor="@color/darker_green"
+                app:backgroundTint="@color/white"></Button>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

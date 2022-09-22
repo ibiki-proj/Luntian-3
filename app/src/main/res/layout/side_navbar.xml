@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_green"
+    android:fillViewport="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:id="@+id/sideNavBar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/bungee_shade"
+            android:includeFontPadding="false"
+            android:padding="5dp"
+            android:text="LUNTIAN"
+            android:textColor="@color/white"
+            android:textSize="33sp"></TextView>
+
+        <Button
+            android:id="@+id/sideHumidityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Humidity Monitoring"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sideSoilMoistureBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Soil Moisture"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sideTrackPlantBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Track Plant Growth"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sidePlantcyclopediaBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Plantcyclopedia"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sideReminderBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="My Reminders"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sidePlannerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="My Planner"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sideNotifBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Notification Settings"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <Button
+            android:id="@+id/sideLogOutBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="0dp"
+            android:text="Log Out"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:backgroundTint="@color/white"></Button>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/plant"></ImageView>
+    </LinearLayout>
+
+</RelativeLayout>

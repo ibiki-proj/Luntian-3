@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@drawable/mainbgwhite"
+    tools:context=".plant_growth_tracking">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        app:itemBackground="@color/darker_green"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottomnavbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/topbar"
+            android:padding="10dp">
+
+
+           <!-- <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="18dp"
+                ></androidx.appcompat.widget.Toolbar>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee_shade"
+                android:includeFontPadding="false"
+                android:padding="15dp"
+                android:text="LUNTIAN"
+                android:textColor="@color/white"
+                android:textSize="45sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/topbar"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/bungee_shade"
+                android:includeFontPadding="false"
+                android:padding="15dp"
+                android:text="LUNTIAN"
+                android:textColor="@color/white"
+                android:textSize="45sp"></TextView>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/sectionTitle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/titleBar"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/textbg_rounded"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/fredoka_regular"
+                android:padding="5dp"
+                android:text="Plant Growth Tracking"
+                android:textColor="@color/white"
+                android:textSize="25sp"></TextView>
+
+        </LinearLayout>
+
+
+    <Button
+        android:id="@+id/addPlantTrackBtn"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/sectionTitle"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mybutton"
+        android:fontFamily="@font/fredoka_regular"
+        android:textColor="@color/white"
+        android:text="Add Plant"
+        android:textSize="18sp"
+        app:backgroundTint="@color/darker_green"></Button>
+
+
+
+
+        <Button
+            android:id="@+id/viewTrackView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addPlantTrackBtn"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/fredoka_regular"
+            android:text="View "
+            android:textSize="20sp"
+            app:backgroundTint="@color/darker_green"
+            android:visibility="gone"></Button>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/addPlantTrackBtn"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@id/bottomNavigationView"
+            android:background="@drawable/textbg_rounded"
+            android:orientation="vertical">
+            <!-- user ID -->
+
+            <TextView
+                android:id="@+id/userIDTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="userID"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:visibility="gone"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:letterSpacing="0.08"
+                    android:text="My Plants"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="22sp"></TextView>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg_white">
+                        <Spinner
+                            android:id="@+id/spnSort"
+                            android:layout_width="130dp"
+                            android:layout_height="30dp"
+                            android:spinnerMode="dropdown"
+                            android:theme="@style/SpinnerTheme"
+                            android:paddingLeft="5dp"></Spinner>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trackPlantListview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"></androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

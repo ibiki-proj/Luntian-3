@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/plant_bgfull"
+    tools:context=".plant_trackview">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainBar">
+
+        <LinearLayout
+            android:id="@+id/menuBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plantbar_menu"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/plantbackBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/gleftarrow"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Track Plant"
+                android:textColor="@color/darker_green"
+                android:textSize="25sp"></TextView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/editTrackBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@id/menuBar"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/editicon"></ImageView>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainBar"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bg_white"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_margin="15dp">
+            <ImageView
+                android:id="@+id/trackImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"></ImageView>
+        </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Plant Name"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg_white">
+
+                <TextView
+                    android:id="@+id/trackPlantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:padding="5dp"
+                    android:text="Plant Name here"
+                    android:textColor="@color/darker_green"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Date Planted"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg_white">
+
+                <TextView
+                    android:id="@+id/trackDatePlanted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:padding="5dp"
+                    android:text="Date Planted here"
+                    android:textColor="@color/darker_green"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/referenceID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/raleway_regular"
+                android:text="Date Planted here"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone"></TextView>
+
+            <!-- graph view here -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Track Plant Growth"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="3dp">
+
+                <com.jjoe64.graphview.GraphView
+                    android:id="@+id/heightGraphview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </com.jjoe64.graphview.GraphView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/addGrowthLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/transparent_roundedbg"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        android:layout_margin="10dp"
+                        android:id="@+id/cancelGrowthbtn"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textSize="20sp"></TextView>
+                </RelativeLayout>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/graphDay"
+                    android:text="day here"
+                    android:textColor="@color/white"
+                    android:visibility="gone"></EditText>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:paddingTop="10dp"
+                        android:text="DATE"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/edittext_bg_white">
+
+                        <EditText
+                            android:id="@+id/graphDate"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittext_bg_white"
+                            android:fontFamily="@font/raleway_regular"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/darker_green"
+                            android:textSize="20sp"></EditText>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:text="PLANT HEIGHT"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/graphHeight"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg_white"
+                        android:fontFamily="@font/raleway_regular"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/darker_green"
+                        android:textSize="20sp"></EditText>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:text="CM"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"></TextView>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/addHeightBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/mybutton"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Add"
+                    android:textColor="@color/darker_green"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/white"></Button>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/addGrowthBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/mybutton"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Add Growth"
+                android:textColor="@color/darker_green"
+                android:textSize="16sp"
+                app:backgroundTint="@color/white"></Button>
+
+            <TextView
+                android:id="@+id/remarksTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Remarks"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+            <LinearLayout
+                android:id="@+id/remarksLayout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:visibility="gone">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/remarksView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/noRemarksLayout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:layout_centerInParent="true"
+                        android:alpha="0.8"
+                        android:background="@drawable/remarksempty"></ImageView>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addRemarksLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/transparent_roundedbg"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_bg_white"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="X"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/fredoka_regular"
+                            android:textSize="20sp"
+                            android:textColor="@color/darker_green"
+                            android:layout_alignParentEnd="true"
+                            android:id="@+id/cancelRemarkBtn"></TextView>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/edittext_bg_white">
+
+                        <ImageView
+                            android:id="@+id/plantRemarkImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/plusicon"></ImageView>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:padding="10dp"
+                        android:text="Date"
+                        android:textColor="@color/darker_green"
+                        android:textSize="18sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/remarkDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/textbg_rounded"
+                        android:fontFamily="@font/raleway_regular"
+                        android:padding="10dp"
+                        android:text="date here"
+                        android:textColor="@color/white"></EditText>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:padding="10dp"
+                        android:text="Remarks"
+                        android:textColor="@color/darker_green"
+                        android:textSize="18sp"></TextView>
+
+                    <EditText
+                        android:id="@+id/remarkTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/textbg_rounded"
+                        android:fontFamily="@font/raleway_regular"
+                        android:hint="remarks here"
+                        android:padding="10dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/light_gray"></EditText>
+
+                    <Button
+                        android:id="@+id/addRemarkBtn"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/mybutton"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:text="Add"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:backgroundTint="@color/darker_green"></Button>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addRemarkLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/mybutton"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Add Remark"
+                android:textColor="@color/darker_green"
+                android:textSize="16sp"
+                app:backgroundTint="@color/white"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

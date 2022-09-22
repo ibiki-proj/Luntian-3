@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg2"
+    android:orientation="vertical"
+    tools:context=".register">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:text="LUNTIAN"
+            android:fontFamily="@font/bungee_shade"
+            android:textColor="@color/white"
+            android:textSize="52sp"
+            android:padding="10dp"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_usernameTxt"
+            android:textColor="@color/darker_green"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp"
+            android:inputType="text"
+            android:hint="username"
+            android:textColorHint="@color/light_green"
+            android:fontFamily="@font/fredoka_regular"
+            android:textSize="20sp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darker_green"
+            android:id="@+id/register_emailTxt"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/light_green"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp"
+            android:inputType="text"
+            android:hint="email"
+            android:fontFamily="@font/fredoka_regular"
+            android:textSize="20sp"
+            ></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_passwordTxt"
+            android:textColor="@color/darker_green"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp"
+            android:textColorHint="@color/light_green"
+            android:inputType="textPassword"
+            android:hint="password"
+            android:fontFamily="@font/fredoka_regular"
+            android:textSize="20sp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_repasswordTxt"
+            android:textColor="@color/darker_green"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:textColorHint="@color/light_green"
+            android:hint="confirm password"
+            android:fontFamily="@font/fredoka_regular"
+            android:textSize="20sp"
+            ></EditText>
+
+        <Button
+            android:id="@+id/regBtn"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_gravity="center"
+            android:text="REGISTER"
+            android:textColor="@color/darker_green"
+            android:fontFamily="@font/fredoka_regular"
+            android:background="@drawable/mybutton"
+            android:textSize="25sp"
+            android:padding="1dp"
+            app:backgroundTint="@color/white"></Button>
+
+        <TextView
+            android:id="@+id/cancelRegBtn"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:letterSpacing="0.08"
+            android:fontFamily="@font/fredoka_regular"
+            android:text="CANCEL"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true">
+        <ProgressBar
+            android:id="@+id/regProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleLarge"
+            android:visibility="gone"></ProgressBar>
+
+    </LinearLayout>
+
+</RelativeLayout>

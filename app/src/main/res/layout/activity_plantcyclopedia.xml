@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbggreen"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".plantcyclopedia">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        android:background="@android:color/transparent"
+        app:itemBackground="@color/white"
+        app:menu="@menu/bottomnavbar"
+        app:itemTextColor="@drawable/selector2"
+        app:itemIconTint="@drawable/selector2"/>
+
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/top"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:fontFamily="@font/bungee_shade"
+            android:includeFontPadding="false"
+            android:padding="15dp"
+            android:text="LUNTIAN"
+            android:textColor="@color/dark_green"
+            android:textSize="45sp"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sectionTitle"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_bg_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fredoka_regular"
+            android:padding="5dp"
+            android:text="Plantcyclopedia"
+            android:textColor="@color/darker_green"
+            android:textSize="25sp"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sectionTitle"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edittext_bg_white"
+        android:padding="7dp"
+        android:id="@+id/searchSection">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/search"
+            ></ImageView>
+        <EditText
+            android:id="@+id/searchView"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/textbg_rounded"
+            android:paddingLeft="10dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:hint="Search..."
+            android:textColorHint="@color/light_gray"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/fredoka_regular"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchSection"
+        android:id="@+id/addPlantInfoSection"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/addPlantInfoBtn"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:text="ADD PLANT INFO"
+            android:background="@drawable/mybutton"
+            app:backgroundTint="@color/white"
+            android:textColor="@color/darker_green"
+            android:visibility="gone"></Button>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@id/addPlantInfoSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/sortLayout"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_bg_white">
+            <Spinner
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:id="@+id/sortPlant"
+                android:spinnerMode="dropdown"
+                android:paddingLeft="5dp"
+                android:theme="@style/SpinnerTheme"></Spinner>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sortLayout"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plantListview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="50dp"></androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/mainbgwhite"
+    tools:context=".ReminderMainActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        android:background="@android:color/transparent"
+        app:itemBackground="@color/darker_green"
+        app:menu="@menu/bottomnavbar"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"/>
+
+    <LinearLayout
+        android:id="@+id/section1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/topbar"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/luntian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:fontFamily="@font/bungee_shade"
+            android:includeFontPadding="false"
+            android:padding="15dp"
+            android:text="LUNTIAN"
+            android:textColor="@color/white"
+            android:textSize="45sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gardenplanner"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/section1"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/layout"
+        android:backgroundTint="#51A375"
+        android:fontFamily="@font/fredoka_regular"
+        android:layout_centerHorizontal="true"
+        android:text="Garden Planner"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gardenplanner"
+        android:id="@+id/todayTitle"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+
+            android:drawableLeft="@drawable/star"
+            android:text=" Today"
+            android:textSize="30dp"
+            android:textColor="@color/dark_green"
+            android:fontFamily="@font/fredoka_regular"
+            android:letterSpacing="0.03"
+            android:layout_marginBottom="10dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/plusicon"
+                        android:id="@+id/addEventBtn"
+                        android:layout_margin="10dp"
+                        ></ImageView>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_below="@id/todayTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="75dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomNavigationView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="#51A375"
+        android:drawableLeft="@drawable/calendar"
+        android:fontFamily="@font/fredoka_regular"
+        android:gravity="center"
+        android:text="Upcoming"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/darker_green">
+
+    </Button>
+
+
+</RelativeLayout>

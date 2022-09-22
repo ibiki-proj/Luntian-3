@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/plant_bgfull"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".edit_planttrack">
+
+    <LinearLayout
+        android:id="@+id/menuBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/plantbar_menu"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/plantbackBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/gleftarrow"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/fredoka_regular"
+            android:text="Edit Plant Info"
+            android:textColor="@color/darker_green"
+            android:textSize="25sp"></TextView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/deleteicon"></ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/editView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuBar"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/ePlantImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"></ImageView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/changeImgBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/mybutton"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Choose new photo"
+                android:textColor="@color/darker_green"
+                android:visibility="visible"
+                app:backgroundTint="@color/white"></Button>
+
+            <TextView
+                android:id="@+id/ePlantID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="plantRefID"
+                android:textColor="@color/white"
+                android:visibility="gone"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Plant Name"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg_white">
+
+                <EditText
+                    android:id="@+id/eTrackPlantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:padding="10dp"
+                    android:text="Plant Name here"
+                    android:textColor="@color/darker_green"
+                    android:textSize="20sp"></EditText>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/fredoka_regular"
+                android:text="Date Planted"
+                android:textColor="@color/white"
+                android:textSize="20sp"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittext_bg_white">
+
+                <EditText
+                    android:id="@+id/trackDatePlanted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/raleway_regular"
+                    android:padding="10dp"
+                    android:text="Date Planted here"
+                    android:textColor="@color/darker_green"
+                    android:textSize="20sp"></EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Status: "
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/edittext_bg_white">
+
+                    <Spinner
+                        android:id="@+id/spnStatus"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:spinnerMode="dropdown"
+                        android:theme="@style/SpinnerTheme"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/referenceID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/raleway_regular"
+                android:text="refID"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Water Frequency"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:padding="10dp"
+                        android:text="every"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg_white">
+
+                        <Spinner
+                            android:id="@+id/spnFreq"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:spinnerMode="dropdown"
+                            android:theme="@style/SpinnerTheme"></Spinner>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
+                    android:rowCount="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:text="Time"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/edWaterTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/edittext_bg_white"
+                        android:fontFamily="@font/raleway_regular"
+                        android:padding="10dp"
+                        android:text="Select Time"
+                        android:textColor="@color/darker_green"
+                        android:textSize="19sp"></TextView>
+                </GridLayout>
+
+            </LinearLayout>
+            <!--
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/fredoka_regular"
+                    android:text="Plant Remarks"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/editRemarkLView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>-->
+
+            <Button
+                android:id="@+id/updateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/mybutton"
+                android:fontFamily="@font/fredoka_regular"
+                android:letterSpacing="0.06"
+                android:text="Update"
+                android:textAllCaps="true"
+                android:textColor="@color/darker_green"
+                android:textSize="22sp"
+                app:backgroundTint="@color/white"></Button>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/deleteLayout"
+        android:layout_below="@id/menuBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg_white"
+                android:padding="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Are you sure you want to delete this plant?"
+                    android:textAlignment="center"
+                    android:textColor="@color/darker_green"
+                    android:fontFamily="@font/raleway_regular"
+                    android:textSize="20sp"></TextView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
+                    <Button
+                        android:id="@+id/delYesBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:background="@drawable/mybutton"
+                        app:backgroundTint="@color/darker_green"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textSize="20sp"
+                        android:layout_margin="15dp"></Button>
+                    <Button
+                        android:id="@+id/delNoBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:background="@drawable/mybutton"
+                        app:backgroundTint="@color/darker_green"
+                        android:fontFamily="@font/fredoka_regular"
+                        android:textSize="20sp"
+                        android:layout_margin="15dp"></Button>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

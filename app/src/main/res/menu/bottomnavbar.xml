@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/plusicon"></item>
+
+    <item android:id="@+id/planttracking"
+        android:title="Tracking"
+        android:icon="@drawable/plantgrowth"></item>
+
+    <item android:id="@+id/plantcyclopedia"
+        android:title="Plants"
+        android:icon="@drawable/plancyclopedia"></item>
+
+    <item android:id="@+id/planner"
+        android:title="Planner"
+        android:icon="@drawable/planner"></item>
+
+    <item android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/settings"></item>
+
+</menu>

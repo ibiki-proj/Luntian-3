@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "60024731294",
+    "firebase_url": "https://luntian-dab9f-default-rtdb.firebaseio.com",
+    "project_id": "luntian-dab9f",
+    "storage_bucket": "luntian-dab9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60024731294:android:463eba27e9a1ae615fad8f",
+        "android_client_info": {
+          "package_name": "com.example.luntian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60024731294-ngdr0499b13868aid9t4qp196dqc5p1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyqd8oEjYvgAEVWfIiFz0-hLU7GMUtD9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60024731294-ngdr0499b13868aid9t4qp196dqc5p1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

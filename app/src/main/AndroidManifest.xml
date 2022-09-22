@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.luntian" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo4_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo4_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Luntian"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31" >
+        <service
+            android:name=".FirebaseMessagingLuntian"
+            android:enabled="true"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".editevent"
+            android:exported="false" />
+        <activity
+            android:name=".calendar"
+            android:exported="false" />
+        <activity
+            android:name=".edit_planttrack"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".forget_password"
+            android:exported="false" />
+        <activity
+            android:name=".upcoming"
+            android:exported="false" />
+        <activity
+            android:name=".ReminderMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".plant_trackview"
+            android:exported="false" />
+        <activity
+            android:name=".add_plant_track"
+            android:exported="false" />
+        <activity
+            android:name=".plant_growth_tracking"
+            android:exported="false" />
+        <activity
+            android:name=".plant_view"
+            android:exported="false" />
+        <activity
+            android:name=".add_plant_info"
+            android:exported="false" />
+        <activity
+            android:name=".plantcyclopedia"
+            android:exported="false" />
+        <activity
+            android:name=".soil_moisture"
+            android:exported="false" />
+        <activity
+            android:name=".main_navbar"
+            android:exported="false" />
+        <activity
+            android:name=".humidity_monitoring"
+            android:exported="false" />
+        <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
