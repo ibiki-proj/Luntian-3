@@ -1,11 +1,15 @@
 package com.example.luntian;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +20,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.luntian.model.Reminder;
@@ -27,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -38,6 +44,7 @@ public class MainActivity3 extends AppCompatActivity  {
     EditText title, desc;
     Button confirm, calendarBtn;
     Calendar calendar = Calendar.getInstance();
+    String timeTonotify;
     String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
     DatabaseReference reminderDBRef;
     TextView homeTitle;
@@ -119,41 +126,54 @@ public class MainActivity3 extends AppCompatActivity  {
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        MainActivity3.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                                timerHour = hour;
-                                timerMinute = minute;
-                                //store
-                                String time = timerHour + ":" + timerMinute;
-                                SimpleDateFormat f24Hours = new SimpleDateFormat(
-                                        "HH:mm"
-                                );
-                                try {
-                                    Date date = f24Hours.parse(time);
-                                    // 12 hour time format
-                                    SimpleDateFormat f12Hours = new SimpleDateFormat(
-                                            "hh:mm aa"
-                                    );
-                                    // set selected time
-                                    timer.setText(f12Hours.format(date));
-                                } catch (ParseException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }, 12, 0, false
-                );
-                //set transparent background
-                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                //Display previous time
-                timePickerDialog.updateTime(timerHour, timerMinute);
-                //show dialog
+                Calendar calendar = Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity3.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        timeTonotify = i + ":" + i1;
+                        timer.setText(FormatTime(i, i1));
+                    }
+                }, hour, minute, false);
                 timePickerDialog.show();
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(
+//                        MainActivity3.this,
+//                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+//                        new TimePickerDialog.OnTimeSetListener() {
+//                            @Override
+//                            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+//                                timerHour = hour;
+//                                timerMinute = minute;
+//                                //store
+//                                String time = timerHour + ":" + timerMinute;
+//                                SimpleDateFormat f24Hours = new SimpleDateFormat(
+//                                        "HH:mm"
+//                                );
+//                                try {
+//                                    Date date = f24Hours.parse(time);
+//                                    // 12 hour time format
+//                                    SimpleDateFormat f12Hours = new SimpleDateFormat(
+//                                            "hh:mm aa"
+//                                    );
+//                                    // set selected time
+//                                    timer.setText(f12Hours.format(date));
+//                                } catch (ParseException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        }, 12, 0, false
+//                );
+//                //set transparent background
+//                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                //Display previous time
+//                timePickerDialog.updateTime(timerHour, timerMinute);
+//                //show dialog
+//                timePickerDialog.show();
             }
         });
+
+
         //calendar
         selectDate = findViewById(R.id.date);
         final Calendar calendar = Calendar.getInstance();
@@ -164,15 +184,27 @@ public class MainActivity3 extends AppCompatActivity  {
         selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog dialog = new DatePickerDialog(MainActivity3.this, new DatePickerDialog.OnDateSetListener() {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity3.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String date = dayOfMonth + "/" + month + "/" + year;
-                        selectDate.setText(date);
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        selectDate.setText(day + "-" + (month + 1) + "-" + year);
                     }
                 }, year, month, day);
-                dialog.show();
+                datePickerDialog.show();
+
+//                DatePickerDialog dialog = new DatePickerDialog(MainActivity3.this, new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+//                        month = month + 1;
+//                        String date = dayOfMonth + "-" + month + "-" + year;
+//                        selectDate.setText(date);
+//                    }
+//                }, year, month, day);
+//                dialog.show();
             }
         });
 
@@ -199,14 +231,45 @@ public class MainActivity3 extends AppCompatActivity  {
             }
         });
     }
+    public String FormatTime(int hour, int minute) {
 
+        String time;
+        time = "";
+        String formattedMinute;
+
+        if (minute / 10 == 0) {
+            formattedMinute = "0" + minute;
+        } else {
+            formattedMinute = "" + minute;
+        }
+
+
+        if (hour == 0) {
+            time = "12" + ":" + formattedMinute + " AM";
+        } else if (hour < 12) {
+            time = hour + ":" + formattedMinute + " AM";
+        } else if (hour == 12) {
+            time = "12" + ":" + formattedMinute + " PM";
+        } else {
+            int temp = hour - 12;
+            time = temp + ":" + formattedMinute + " PM";
+        }
+
+
+        return time;
+    }
     private void insertReminderData() {
 
-        String t = title.getText().toString();
-        String d = desc.getText().toString();
-        String tm = timer.getText().toString();
-        String dt = date.getText().toString();
+        String t = title.getText().toString().trim();
+        String d = desc.getText().toString().trim();
+        String tm = timer.getText().toString().trim();
+        String dt = date.getText().toString().trim();
         String currentDate = textViewDate.getText().toString();
+
+//        Toast.makeText(this, tm.toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, dt.toString(), Toast.LENGTH_SHORT).show();
+
+        setAlarm(t, d, dt, tm);
         if (t.isEmpty()){
             title.setError("Please put event title.");
             title.requestFocus();
@@ -220,9 +283,9 @@ public class MainActivity3 extends AppCompatActivity  {
             date.setError("Please add event date.");
             date.requestFocus();
         } else {
-            Reminder reminder = new Reminder(t,d,tm,dt, currentDate);
+            Reminder reminder = new Reminder(t, d, tm, dt, currentDate);
             reminderDBRef.push().setValue(reminder);
-            Toast.makeText(MainActivity3.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity3.this, "Data Inserted", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity3.this, ReminderMainActivity.class);
             intent.setFlags(intent.FLAG_ACTIVITY_SINGLE_TOP);
             finish();
@@ -230,5 +293,42 @@ public class MainActivity3 extends AppCompatActivity  {
         }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK && data != null) {
+                ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                title.setText(text.get(0));
+            }
+        }
+
+    }
+    private void setAlarm(String text, String description, String date, String time) {
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
+        intent.putExtra("event", text);
+        intent.putExtra("desc", description);
+        intent.putExtra("time", date);
+        intent.putExtra("date", time);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        String dateandtime = date + " " + timeTonotify;
+        DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
+        try {
+            Date date1 = formatter.parse(dateandtime);
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        finish();
+
+    }
+
 
 }
