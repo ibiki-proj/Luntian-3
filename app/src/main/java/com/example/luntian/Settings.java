@@ -39,7 +39,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     private Button logoutBtn;
     String devicePath = "";
     String token = "";
-    private Spinner spinner;
+//    private Spinner spinner;
     private static final String[] paths = {"Device 1", "Device 2"};
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
@@ -48,7 +48,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         FirebaseDatabase rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
         DatabaseReference sampleRef = rtdb.getReference("Users").child(FirebaseAuth.getInstance().getUid());
-        DatabaseReference deviceRef = rtdb.getReference("sampletest1").child(paths[position]).child("usersInvolved");
+        DatabaseReference deviceRef = rtdb.getReference("devices").child(paths[position]).child("usersInvolved");
 
         Map<String, Object> data = new HashMap<>();
 
@@ -161,7 +161,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 
 
                     int position =  Arrays.asList(paths).indexOf(devicePath);
-                    spinner.setSelection(position);
+//                    spinner.setSelection(position);
                     Toast.makeText(Settings.this, "Path"+Arrays.asList(paths).indexOf(devicePath), Toast.LENGTH_SHORT).show();
 
                 }
@@ -187,13 +187,13 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.settings);
-        spinner = (Spinner)findViewById(R.id.spinner);
+//        spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(Settings.this,
                 android.R.layout.simple_spinner_item,paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(this);
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -202,7 +202,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
                 switch (item.getItemId()){
                     case R.id.home:
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK );
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
 
                         overridePendingTransition(0,0);
@@ -245,7 +245,7 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
         int position =  Arrays.asList(paths).indexOf(devicePath);
-        spinner.setSelection(position);
+//        spinner.setSelection(position);
         logoutBtn = findViewById(R.id.logoutBtn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

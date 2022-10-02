@@ -16,8 +16,10 @@ var fcm = admin.messaging();
 //   response.send(String(textLength));
 // });
 
+const databaseParent = "devices";
+
 exports.newNodeDetected = functions.database
-  .ref("sampletest1/{deviceid}")
+  .ref(databaseParent + "/{deviceid}")
   .onWrite((change, context) => {
     var oldData = change.before.val();
     var newData = change.after.val();
@@ -36,7 +38,7 @@ exports.newNodeDetected = functions.database
     // };
 
     // // database
-    // // .ref("sampletest1")
+    // // .ref(databaseParent)
     // // .child(deviceId)
     // // .child("logs")
     // // .push({
@@ -55,7 +57,7 @@ exports.newNodeDetected = functions.database
         };
 
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -76,7 +78,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -98,7 +100,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -118,7 +120,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -140,7 +142,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -160,7 +162,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -182,7 +184,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -202,7 +204,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -224,7 +226,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({
@@ -244,7 +246,7 @@ exports.newNodeDetected = functions.database
           },
         };
         database
-          .ref("sampletest1")
+          .ref(databaseParent)
           .child(deviceId)
           .child("logs")
           .push({

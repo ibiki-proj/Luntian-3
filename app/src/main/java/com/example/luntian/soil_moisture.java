@@ -51,7 +51,7 @@ String devicePath = "";
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
 
         data.put(fieldName,currentValue);
@@ -73,7 +73,7 @@ String devicePath = "";
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
         currentValue+=1;
         data.put(fieldName,currentValue);
@@ -93,7 +93,7 @@ String devicePath = "";
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
         currentValue-=1;
         data.put(fieldName,currentValue);
@@ -112,7 +112,7 @@ String devicePath = "";
     void listenToData(){
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
