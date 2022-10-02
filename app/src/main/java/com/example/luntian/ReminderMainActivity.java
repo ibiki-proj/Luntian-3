@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luntian.adapter.ListAdapter;
+import com.example.luntian.adapter.dialogAdapter;
 import com.example.luntian.model.Reminder;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class ReminderMainActivity extends AppCompatActivity {
     com.example.luntian.adapter.ListAdapter ListAdapter;
     ArrayList<Reminder> list;
     TextView homeTitle;
+    dialogAdapter dialogAdapter;
     ImageView addEventBtn;
 
     BottomNavigationView bottomNavigationView;
@@ -52,6 +55,7 @@ public class ReminderMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder_main);
+        String ngayon = new SimpleDateFormat("yyyy-M-d", Locale.getDefault()).format(new Date()).toString();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.planner);
@@ -130,27 +134,44 @@ public class ReminderMainActivity extends AppCompatActivity {
         list = new ArrayList<Reminder>();
         ListAdapter = new ListAdapter(this,list);
         recyclerView.setAdapter(ListAdapter);
+        dialogAdapter = new dialogAdapter(this, list);
+        recyclerView.setAdapter(dialogAdapter);
 
-
-
-        database.orderByChild("dt").startAt(currentdate).endAt(tomorrow).addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Reminder reminder = dataSnapshot.getValue(Reminder.class);
+                    Reminder reminder = dataSnapshot.getValue(Reminder.class);
+                    String rvalue = reminder.getdt();
+                    if(ngayon.equals(rvalue)){
                         list.add(reminder);
-                    //Toast.makeText(ReminderMainActivity.this, ""+reminder.getcurrentDate(), Toast.LENGTH_SHORT).show();
                     }
-                    ListAdapter.notifyDataSetChanged();
-
-
+                }
+                dialogAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+
+//        database.orderByChild("dt").startAt(currentdate).endAt(tomorrow).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                        Reminder reminder = dataSnapshot.getValue(Reminder.class);
+//                        list.add(reminder);
+//
+//                    }
+//                    ListAdapter.notifyDataSetChanged();
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
                 //upcoming button
                 Button button = (Button) findViewById(R.id.upcoming);

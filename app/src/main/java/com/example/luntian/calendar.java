@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +47,7 @@ public class calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     private ViewGroup parent;
     String sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()).toString();
     String tomorrow;
+    //ListView userList;
 
     BottomNavigationView bottomNavigationView;
 
@@ -51,6 +55,8 @@ public class calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        //userList = findViewById(R.id.userList);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.planner);
@@ -146,7 +152,8 @@ public class calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     public void onItemClick(int position, LocalDate date) {
         {
             if (date != null) {
-
+                String dates = date.toString();
+                //Toast.makeText(this, "LocalDate: " + date.toString(), Toast.LENGTH_SHORT).show();
                 CalendarUtils.selectedDate = date;
                 setMonthView();
                 recyclerView = findViewById(R.id.userList);
@@ -156,6 +163,7 @@ public class calendar extends AppCompatActivity implements CalendarAdapter.OnIte
                 recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
                 list = new ArrayList<Reminder>();
+
                 dialogAdapter = new dialogAdapter(this, list);
                 recyclerView.setAdapter(dialogAdapter);
 
@@ -165,18 +173,22 @@ public class calendar extends AppCompatActivity implements CalendarAdapter.OnIte
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Reminder reminder = dataSnapshot.getValue(Reminder.class);
-                            list.add(reminder);
+                            String rvalue = reminder.getdt();
+                            String dvalue = reminder.getd();
+                            if(dates.equals(rvalue)){
+                                list.add(reminder);
+                                //Toast.makeText(calendar.this, "DB Date: " + rvalue.toString(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(calendar.this, dvalue.toString(), Toast.LENGTH_SHORT).show();
+                            }
+
+
 
                         }
                         dialogAdapter.notifyDataSetChanged();
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
-
                 });
             }
         }

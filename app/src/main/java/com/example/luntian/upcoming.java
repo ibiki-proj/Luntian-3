@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luntian.adapter.ListAdapter;
+import com.example.luntian.adapter.dialogAdapter;
 import com.example.luntian.adapter.upAdapter;
 import com.example.luntian.model.Reminder;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,6 +38,7 @@ public class upcoming extends AppCompatActivity {
     DatabaseReference database;
     com.example.luntian.adapter.upAdapter upAdapter;
     ArrayList<Reminder> list;
+    dialogAdapter dialogAdapter;
     Calendar calendar = Calendar.getInstance();
     String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()).toString();
     String tomorrow, week;
@@ -51,6 +53,7 @@ public class upcoming extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.planner);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -129,26 +132,41 @@ public class upcoming extends AppCompatActivity {
         recyclerView.setAdapter(upAdapter);
         Intent rInt = getIntent();
         String edPID = rInt.getStringExtra("childKey");
-
-        database.orderByChild("dt").startAt(tomorrow).endAt(week).addValueEventListener(new ValueEventListener() {
+        dialogAdapter = new dialogAdapter(this, list);
+        recyclerView.setAdapter(dialogAdapter);
+        database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Reminder reminder = dataSnapshot.getValue(Reminder.class);
                     list.add(reminder);
+
                 }
-
-                ListAdapter adapter = new ListAdapter(upcoming.this, list);
-                recyclerView.setAdapter(adapter);
-
+                dialogAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+//        database.orderByChild("dt").startAt(tomorrow).endAt(week).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    Reminder reminder = dataSnapshot.getValue(Reminder.class);
+//                    list.add(reminder);
+//                }
+//
+//                ListAdapter adapter = new ListAdapter(upcoming.this, list);
+//                recyclerView.setAdapter(adapter);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
         Button btnn = (Button) findViewById(R.id.calendar);
         btnn.setOnClickListener(new View.OnClickListener() {

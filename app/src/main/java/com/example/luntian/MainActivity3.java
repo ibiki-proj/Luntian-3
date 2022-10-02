@@ -192,7 +192,7 @@ public class MainActivity3 extends AppCompatActivity  {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity3.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        selectDate.setText(day + "-" + (month + 1) + "-" + year);
+                        selectDate.setText(year + "-" + (month + 1) + "-" + day);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -324,7 +324,7 @@ public class MainActivity3 extends AppCompatActivity  {
         }
 
         String dateandtime = date + " " + timeTonotify;
-        DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
+        DateFormat formatter = new SimpleDateFormat("yyyy-M-d hh:mm");
         try {
             Date date1 = formatter.parse(dateandtime);
             am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
