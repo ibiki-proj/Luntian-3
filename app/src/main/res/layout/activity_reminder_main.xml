@@ -137,8 +137,8 @@
         android:fontFamily="@font/fredoka_regular"
         android:gravity="center"
         android:text="Upcoming"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:backgroundTint="@color/darker_green">
 
     </Button>

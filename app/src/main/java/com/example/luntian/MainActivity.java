@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity /*implements NavigationView.
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Fetching FCM registration token failed"+task.getException(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MainActivity.this, "Fetching FCM registration token failed"+task.getException(), Toast.LENGTH_SHORT).show();
                             return;
                         }
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity /*implements NavigationView.
 
                         sampleRef.updateChildren(data);
                         // Upload to firebase
-                        Toast.makeText(MainActivity.this, "Token "+token, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Token "+token, Toast.LENGTH_SHORT).show();
                     }
                 });
         Intent rIntent = getIntent();
