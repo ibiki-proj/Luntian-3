@@ -91,7 +91,7 @@ exports.newNodeDetected = functions.database
       }
     } else if (oldData.currentSoilMoist1 != newData.currentSoilMoist1) {
       if (newData.currentSoilMoist1 > newData.minSoilMoist1) {
-        // @ts-ignore
+        // @ts-ignores
         var payload = {
           notification: {
             tag: "moisture1",
