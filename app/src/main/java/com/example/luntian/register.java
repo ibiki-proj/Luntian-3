@@ -232,7 +232,7 @@ public class register extends AppCompatActivity implements AdapterView.OnItemSel
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Users user = new Users(regUName, regEmail, regPassword,token);
+                            Users user = new Users(regUName, regEmail, regPassword,token,devicePath);
                             FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

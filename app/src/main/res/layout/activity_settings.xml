@@ -113,6 +113,7 @@
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/notifReminders"
+                            android:checked="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
@@ -232,6 +233,7 @@
                             android:layout_marginRight="5dp"
                             android:textColor="@color/darker_green"
                             android:textOff="OFF"
+                            android:checked="true"
                             android:textOn="ON"
                             android:textSize="20sp"
                             android:thumb="@drawable/s_switch_thumb"
@@ -289,6 +291,7 @@
                             android:textColor="@color/darker_green"
                             android:textOff="OFF"
                             android:textOn="ON"
+                            android:checked="true"
                             android:textSize="20sp"
                             android:thumb="@drawable/s_switch_thumb"
                             app:showText="true"
@@ -400,6 +403,7 @@
                             android:textOff="OFF"
                             android:textOn="ON"
                             android:textSize="20sp"
+                            android:checked="true"
                             android:thumb="@drawable/s_switch_thumb"
                             app:showText="true"
                             app:track="@drawable/s_switch_track"></androidx.appcompat.widget.SwitchCompat>

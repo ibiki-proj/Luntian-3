@@ -1,16 +1,17 @@
 package com.example.luntian.model;
 
 public class Users {
-  String Username, Email, Password,Token;
+  String Username, Email, Password,Token,Device;
 
     public Users() {
     }
 
-    public Users(String username, String email, String password,String token) {
+    public Users(String username, String email, String password,String token,String device) {
         Username = username;
         Email = email;
         Password = password;
         Token = token;
+        Device = device;
     }
 
     public String getUsername() {
@@ -33,7 +34,13 @@ public class Users {
     public void setEmail(String email) {
         Email = email;
     }
+    public String getDevice() {
+        return Device;
+    }
 
+    public void setDevice(String device) {
+        Device = device;
+    }
     public String getPassword() {
         return Password;
     }
