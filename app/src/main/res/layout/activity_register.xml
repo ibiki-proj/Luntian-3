@@ -23,7 +23,15 @@
             android:textColor="@color/white"
             android:textSize="52sp"
             android:padding="10dp"></TextView>
-
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+            android:text="Devices" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,6 +75,8 @@
             android:fontFamily="@font/fredoka_regular"
             android:textSize="20sp"
             ></EditText>
+
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

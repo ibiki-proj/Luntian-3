@@ -51,7 +51,7 @@ public class humidity_monitoring extends AppCompatActivity {
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
 
         Map<String, Object> data = new HashMap<>();
 
@@ -80,7 +80,7 @@ public class humidity_monitoring extends AppCompatActivity {
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
         int currentMinTemp = Integer.parseInt(minTempTxtValue.getText().toString());
         currentMinTemp -= 1;
@@ -103,7 +103,7 @@ public class humidity_monitoring extends AppCompatActivity {
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
         int currentMinTemp = Integer.parseInt(minTempTxtValue.getText().toString());
         currentMinTemp += 1;
@@ -126,7 +126,7 @@ public class humidity_monitoring extends AppCompatActivity {
         // Initialized Firestore
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
         Map<String, Object> data = new HashMap<>();
 
         data.put(fieldName,currentValue);
@@ -146,7 +146,7 @@ public class humidity_monitoring extends AppCompatActivity {
     void listenToData(){
         rtdb = FirebaseDatabase.getInstance();
         // Database location reference of the humidity, temperature, fan status
-        DatabaseReference sampleRef = rtdb.getReference("sampletest1").child(devicePath);
+        DatabaseReference sampleRef = rtdb.getReference("devices").child(devicePath);
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
